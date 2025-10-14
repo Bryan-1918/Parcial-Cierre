@@ -1,0 +1,35 @@
+CREATE TABLE if NOT EXISTS usuarios (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  name varchar(50),
+  email varchar(50),
+  passUser varchar(128),
+  rol varchar(50)
+);
+
+CREATE TABLE if NOT EXISTS proyectos (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  titulo varchar(50),
+  descrip varchar(500),
+  studentId int,
+  FOREIGN KEY (studentId) REFERENCES usuarios(id),
+  avance varchar(50),
+  approved boolean
+);
+
+CREATE TABLE if NOT EXISTS comentarios (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  project int,
+  FOREIGN KEY (project) REFERENCES proyectos(id),
+  tutorId int,
+  FOREIGN KEY (tutorId) REFERENCES usuarios(id),
+  comentario varchar(50)
+);
+
+CREATE TABLE if NOT EXISTS avances (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  project int,
+  FOREIGN KEY (project) REFERENCES proyectos(id),
+  tutorId int,
+  FOREIGN KEY (tutorId) REFERENCES usuarios(id),
+  avance varchar(500)
+);
