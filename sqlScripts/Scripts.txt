@@ -33,3 +33,7 @@ CREATE TABLE if NOT EXISTS avances (
   FOREIGN KEY (tutorId) REFERENCES usuarios(id),
   avance varchar(500)
 );
+
+INSERT INTO `usuarios` (`id`, `name`, `email`, `passUser`, `rol`) VALUES (NULL, 'Co', 'coordinador@email.com', '123', 'Coordinador');
+
+$passHash = password_hash($passUsuario, PASSWORD_DEFAULT);
