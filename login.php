@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "/php/conexion.php";
+include "php/conexion.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -8,20 +8,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Buscar usuario por correo (método directo)
     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conexion, $sql);
 
     if (mysqli_num_rows($result) == 1) {
         $user = mysqli_fetch_assoc($result); // convertir el resultado en un diccionario
 
         // Verificar contraseña encriptada
-        if (password_verify($password, $user['passUser'])) {
+        if ($password == $user['passUser']) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['rol'] = $user['rol'];
             $_SESSION['nombre'] = $user['name'];
 
             // Redirigir según el rol
             if ($user['rol'] == 'Coordinador') {
-                header("Location: /php/usuarios.php");
+                header("Location: php/usuarios.php");
             } elseif ($user['rol'] == 'Tutor') {
                 header("Location: tutor_panel.php");
             } else {
