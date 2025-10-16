@@ -23,8 +23,13 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <h2>Gestión de Usuarios (Coordinador)</h2>
 
+<!--Gestionar usuarios-->
 <button> <a href="../php/registrarTutores.php">Registrar un nuevo tutor</a></button>
 <button> <a href="../php/registrarEstudiantes.php">Registrar un nuevo estudiante</a></button>
+
+<!--Gestionar proyectos-->
+<button> <a href="../php/proyectosCoordinador.php">Gestionar proyectos</a></button>
+
 
 <br></br>
 

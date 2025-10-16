@@ -16,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "El correo ya está registrado.";
         echo "<p style='color:red;'>$error</p>";
     } else {
-        // Insertar nuevo tutor
+        // Insertar nuevo estudiante
         $sql = "INSERT INTO usuarios (name, email, passUser, rol) VALUES ('$name', '$email', '$passUser', '$rol')";
         if (mysqli_query($conexion, $sql)) {
-            echo "<p style='color:green;'>Tutor registrado exitosamente.</p>";
+            echo "<p style='color:green;'>Estudiante registrado exitosamente.</p>";
         } else {
-            $error = "Error al registrar el tutor: " . mysqli_error($conexion);
+            $error = "Error al registrar el estudiante: " . mysqli_error($conexion);
             echo "<p style='color:red;'>$error</p>";
         }
     }
@@ -38,6 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input type="email" name="email" required><br>
     Contraseña:<br>
     <input type="password" name="passUser" required><br><br>
-    <input type="submit" value="Registrar Tutor">
+    <input type="submit" value="Registrar Estudiante">
 </form>
 
