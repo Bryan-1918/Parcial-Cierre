@@ -13,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $rol = $_POST['rol'];
 
-    $conexion->query("UPDATE usuarios SET name='$nombre', email='$email', passUser='$password', rol='$rol' WHERE id=$id");
+    $passHash = password_hash($password, PASSWORD_DEFAULT);
+
+    $conexion->query("UPDATE usuarios SET name='$nombre', email='$email', passUser='$passHash', rol='$rol' WHERE id=$id");
     header("Location: ../panelesUsuarios/panelCoordinador.php");
     exit();
 }
