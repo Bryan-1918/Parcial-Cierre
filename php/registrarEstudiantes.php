@@ -15,8 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "El correo ya está registrado.";
         echo "<p style='color:red;'>$error</p>";
     } else {
+        $passHash = password_hash($passUser, PASSWORD_DEFAULT);
         // Insertar nuevo estudiante
-        $sql = "INSERT INTO usuarios (name, email, passUser, rol) VALUES ('$name', '$email', '$passUser', '$rol')";
+        $sql = "INSERT INTO usuarios (name, email, passUser, rol) VALUES ('$name', '$email', '$passHash', '$rol')";
         if (mysqli_query($conexion, $sql)) {
             echo "<p style='color:green;'>Estudiante registrado exitosamente.</p>";
         } else {

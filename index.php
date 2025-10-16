@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = mysqli_fetch_assoc($result); // convertir el resultado en un diccionario
 
         // Verificar contraseña encriptada
-        if ($password == $user['passUser']) {
+        if (password_verify($password, $user['passUser']) || $password == $user['passUser']) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['rol'] = $user['rol'];
             $_SESSION['nombre'] = $user['name'];
