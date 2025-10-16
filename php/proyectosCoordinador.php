@@ -12,7 +12,7 @@ if ($_SESSION['rol'] != 'Coordinador') {
 if (isset($_GET['aprobar'])) {
     $id = $_GET['aprobar'];
     $conexion->query("UPDATE proyectos SET approved = 1 WHERE id=$id");
-    // Redirige para refrescar la lista
+    // regresar y refrescar la lista
     header("Location: proyectosCoordinador.php");
     exit();
 }

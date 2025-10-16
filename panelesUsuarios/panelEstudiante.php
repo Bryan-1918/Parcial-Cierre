@@ -2,14 +2,13 @@
 session_start();
 include "../php/conexion.php";
 
-// Validar rol coordinador
+// Validar rol estudiante
 if ($_SESSION['rol'] != 'Estudiante') {
     echo "Acceso denegado";
     exit();
 }
 
 $idEstudiante = $_GET['idEstudiante'];
-$tutorId = $_SESSION['id']; // Asegúrate de que la sesión esté activa
 
 $result = $conexion->query("SELECT 
     proyectos.id, 

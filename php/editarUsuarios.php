@@ -4,7 +4,7 @@ include "conexion.php";
 $id = $_GET['id'];
 // Obtener datos actuales
 $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
-$user = $sql->fetch_assoc();
+$user = $sql->fetch_assoc(); // convertir en diccionario
 
 // envio del formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -8,12 +8,6 @@ if ($_SESSION['rol'] != 'Coordinador') {
     exit();
 }
 
-//$id = $_GET['id'];
-// Obtener datos actuales
-//$sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
-//$user = $sql->fetch_assoc();
-
-
 $result = $conexion->query("SELECT * FROM usuarios WHERE rol IN ('Tutor', 'Estudiante')");
 $rows = $result->fetch_all(MYSQLI_ASSOC);
 ?>

@@ -3,7 +3,6 @@ include "conexion.php";
 session_start();
 
 $idProyecto = $_GET['idProyecto'];
-$tutorId = $_SESSION['id']; // Asegúrate de que la sesión esté activa
 
 // Procesar el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

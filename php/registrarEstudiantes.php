@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $passUser = $_POST['passUser'];
     $rol = 'Estudiante'; // Rol fijo para estudiantes
 
-    // Buscar usuario por correo (método directo)
     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $result = mysqli_query($conexion, $sql);
 
