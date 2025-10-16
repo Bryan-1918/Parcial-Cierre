@@ -22,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <h2>Editar Usuario</h2>
 <form method="post">
     Nombre:<br>
-    <input type="text" name="nombre" value="<?php echo $user['name']; ?>" required><br>
+    <input type="text" name="nombre" placeholder="<?php echo $user['name']; ?>" required><br>
     Email:<br>
-    <input type="email" name="email" value="<?php echo $user['email']; ?>" required><br>
+    <input type="email" name="email" placeholder="<?php echo $user['email']; ?>" required><br>
     Contraseña:<br>
-    <input type="text" name="password" value="<?php echo $user['passUser']; ?>" required><br>
+    <input type="text" name="password" placeholder="New Password" required><br>
     Rol:<br>
     <select name="rol" required>
         <option value="Tutor" <?php if($user['rol']=="Tutor") echo "selected"; ?>>Tutor</option>
