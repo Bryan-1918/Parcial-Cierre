@@ -50,4 +50,4 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
     <?php } ?>
 </table>
 <br></br>
-<button> <a href="../php/registrarNuevoProyecto.php">Registrar un nuevo proyecto</a></button>
+<button> <a href="../php/registrarNuevoProyecto.php?idEstudiante=<?= (int)$idEstudiante ?>">Registrar un nuevo proyecto</a></button>
