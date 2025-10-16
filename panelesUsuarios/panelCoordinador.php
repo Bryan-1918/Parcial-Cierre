@@ -8,6 +8,14 @@ if ($_SESSION['rol'] != 'Coordinador') {
     exit();
 }
 
+// Eliminar usuario
+if (isset($_GET['delete'])) {
+    $idToDelete = $_GET['delete'];
+    $conexion->query("DELETE FROM usuarios WHERE id=$idToDelete");
+    header("Location: panelCoordinador.php");
+    exit();
+}
+
 $result = $conexion->query("SELECT * FROM usuarios WHERE rol IN ('Tutor', 'Estudiante')");
 $rows = $result->fetch_all(MYSQLI_ASSOC);
 ?>
