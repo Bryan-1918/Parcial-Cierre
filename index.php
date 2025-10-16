@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Redirigir según el rol
             if ($user['rol'] == 'Coordinador') {
-                header("Location: php/usuarios.php");
+                header("Location: panelesUsuarios/panelCoordinador.php");
             } elseif ($user['rol'] == 'Tutor') {
                 header("Location: tutor_panel.php");
             } else {
