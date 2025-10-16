@@ -15,7 +15,6 @@ CREATE TABLE if NOT EXISTS proyectos (
   descrip varchar(500),
   studentId int,
   FOREIGN KEY (studentId) REFERENCES usuarios(id),
-  avance varchar(50),
   approved boolean
 );
 
@@ -27,6 +26,15 @@ CREATE TABLE if NOT EXISTS comentarios (
   FOREIGN KEY (tutorId) REFERENCES usuarios(id),
   comentario varchar(50)
 );
+
+CREATE TABLE IF NOT EXISTS entregables (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  project int,
+  FOREIGN KEY (project) REFERENCES proyectos(id),
+  studentId int,
+  FOREIGN KEY (studentId) REFERENCES usuarios(id),
+  entregable varchar(500)
+)
 
 CREATE TABLE if NOT EXISTS avances (
   id int PRIMARY KEY AUTO_INCREMENT,

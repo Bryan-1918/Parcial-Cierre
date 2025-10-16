@@ -23,9 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($user['rol'] == 'Coordinador') {
                 header("Location: panelesUsuarios/panelCoordinador.php");
             } elseif ($user['rol'] == 'Tutor') {
-                header("Location: tutor_panel.php");
+                header("Location: panelesUsuarios/panelTutor.php");
+            } elseif ($user['rol'] == 'Estudiante') {
+                header("Location: panelesUsuarios/panelEstudiante.php?idEstudiante=" . (int)$user['id']);
             } else {
-                header("Location: estudiante_panel.php");
+                $error = "Rol no reconocido.";
             }
             exit();
         } else {

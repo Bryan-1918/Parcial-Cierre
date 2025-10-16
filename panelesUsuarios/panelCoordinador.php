@@ -8,14 +8,10 @@ if ($_SESSION['rol'] != 'Coordinador') {
     exit();
 }
 
-// Manejar eliminación de usuario
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    $conexion->query("DELETE FROM usuarios WHERE id = $id");
-    // Redirige para refrescar la lista
-    header("Location: panelCoordinador.php");
-    exit();
-}
+//$id = $_GET['id'];
+// Obtener datos actuales
+//$sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
+//$user = $sql->fetch_assoc();
 
 
 $result = $conexion->query("SELECT * FROM usuarios WHERE rol IN ('Tutor', 'Estudiante')");
@@ -46,7 +42,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         <td><?= $row['email'] ?></td>
         <td><?= $row['rol'] ?></td>
         <td>
-            <a href="../php/editarUsuarios.php?id=<?= $row['id'] ?>">Editar</a> |
+            <a href="../php/editarUsuarios.php?id=<?= $row['id'] ?>">Editar</a> 
             <a href="?delete=<?= $row['id'] ?>" onclick="return confirm('Eliminar usuario?')">Eliminar</a>
         </td>
     </tr>

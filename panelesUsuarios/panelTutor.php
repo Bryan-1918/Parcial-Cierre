@@ -3,17 +3,8 @@ session_start();
 include "../php/conexion.php";
 
 // Validar rol coordinador
-if ($_SESSION['rol'] != 'Coordinador') {
+if ($_SESSION['rol'] != 'Tutor') {
     echo "Acceso denegado";
-    exit();
-}
-
-// aprobar proyecto 
-if (isset($_GET['aprobar'])) {
-    $id = $_GET['aprobar'];
-    $conexion->query("UPDATE proyectos SET approved = 1 WHERE id=$id");
-    // Redirige para refrescar la lista
-    header("Location: proyectosCoordinador.php");
     exit();
 }
 
@@ -36,6 +27,8 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <h2>Gestión de Proyectos</h2>
 
+<br></br>
+
 <table border="1">
     <tr>
         <th>Titulo</th>
@@ -56,8 +49,12 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         <td><?= $row['comentarios'] ?></td>
         <td><?= $row['approved'] == 1 ? 'Aprobado' : 'No aprobado' ?></td>
         <td>
-            <a href="?aprobar=<?= $row['id'] ?>" onclick="return confirm('Aprobar proyecto?')">Aprobar</a>
+            <a href="../php/registrarAvance.php?idProyecto=<?= $row['id'] ?>">Registrar Avance</a>
         </td>
+        <td>
+            <a href="../php/registrarComentario.php?idProyecto=<?= $row['id'] ?>">Añadir Comentario</a>
+        </td>
+
     </tr>
     <?php } ?>
 </table>
