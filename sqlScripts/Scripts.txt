@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS parcial;
+USE parcial;
+
 CREATE TABLE if NOT EXISTS usuarios (
   id int PRIMARY KEY AUTO_INCREMENT,
   name varchar(50),
@@ -35,5 +38,3 @@ CREATE TABLE if NOT EXISTS avances (
 );
 
 INSERT INTO `usuarios` (`id`, `name`, `email`, `passUser`, `rol`) VALUES (NULL, 'Co', 'coordinador@email.com', '123', 'Coordinador');
-
-$passHash = password_hash($passUsuario, PASSWORD_DEFAULT);

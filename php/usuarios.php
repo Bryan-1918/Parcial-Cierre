@@ -12,6 +12,11 @@ $result = $conexion->query("SELECT * FROM usuarios WHERE rol IN ('Tutor', 'Estud
 ?>
 <h2>Gestión de Usuarios (Coordinador)</h2>
 
+<button> <a href="registrarTutores.php">Registrar un nuevo tutor</a></button>
+<button> <a href="registrarEstudiantes.php">Registrar un nuevo estudiante</a></button>
+
+<br></br>
+
 <table border="1">
     <tr>
         <th>Nombre</th>
@@ -29,5 +34,9 @@ $result = $conexion->query("SELECT * FROM usuarios WHERE rol IN ('Tutor', 'Estud
             <a href="?delete=<?= $row['id'] ?>" onclick="return confirm('Eliminar usuario?')">Eliminar</a>
         </td>
     </tr>
-    <?php } ?>
 </table>
+
+
+
+<?php
+ } ?>
