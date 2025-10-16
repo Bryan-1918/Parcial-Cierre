@@ -8,6 +8,9 @@ if ($_SESSION['rol'] != 'Tutor') {
     exit();
 }
 
+// tutor id
+$idTutor = $_SESSION['id'];
+
 $result = $conexion->query("SELECT 
     proyectos.id, 
     proyectos.titulo, 
@@ -52,7 +55,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
             <a href="../php/registrarAvance.php?idProyecto=<?= $row['id'] ?>">Registrar Avance</a>
         </td>
         <td>
-            <a href="../php/registrarComentario.php?idProyecto=<?= $row['id'] ?>">Añadir Comentario</a>
+            <a href="../php/registrarComentario.php?idProyecto=<?= $row['id'] ?>&tutorId=<?=$idTutor?>">Añadir Comentario</a>
         </td>
 
     </tr>

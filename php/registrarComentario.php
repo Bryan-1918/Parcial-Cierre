@@ -3,6 +3,7 @@ include "conexion.php";
 session_start();
 
 $idProyecto = $_GET['idProyecto'];
+$tutorId = $_GET['tutorId'];
 
 // Procesar el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
