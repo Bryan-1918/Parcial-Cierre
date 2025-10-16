@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS entregables (
   studentId int,
   FOREIGN KEY (studentId) REFERENCES usuarios(id),
   entregable varchar(500)
-)
+);
 
 CREATE TABLE if NOT EXISTS avances (
   id int PRIMARY KEY AUTO_INCREMENT,
