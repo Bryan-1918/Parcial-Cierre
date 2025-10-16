@@ -52,7 +52,7 @@ $rows = $result->fetch_all(MYSQLI_ASSOC);
         <td><?= $row['comentarios'] ?></td>
         <td><?= $row['approved'] == 1 ? 'Aprobado' : 'No aprobado' ?></td>
         <td>
-            <a href="../php/registrarAvance.php?idProyecto=<?= $row['id'] ?>">Registrar Avance</a>
+            <a href="../php/registrarAvance.php?idProyecto=<?= $row['id'] ?>&tutorId=<?=$idTutor?>">Registrar Avance</a>
         </td>
         <td>
             <a href="../php/registrarComentario.php?idProyecto=<?= $row['id'] ?>&tutorId=<?=$idTutor?>">Añadir Comentario</a>
